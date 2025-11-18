@@ -1,0 +1,276 @@
+:root{
+  --bg: #cbeaff;
+  --panel: rgba(255,255,255,0.85);
+  --accent: #3a7bd5;
+  --game-h: 57vh;
+  --hud-gap: 12px;
+}
+
+/* reset dan tata letak */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #cbeaff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  gap: 12px;
+}
+
+/* posisi awal  */
+#player { top: 150px; }
+#home { top: 100px; }
+#homeDua { top: 0px; }
+#damkar { top: 200px; }
+#kantorpolisi { top:200px; }
+#gym { top: 300px; }
+#pabrik { top: 400px; }
+#pakaian { top: 100px; }
+#rumahmakan { top: 300px; }
+#rumahsakit { top: 500px; }
+#sekolah { top: 400px; }
+#tokomobil {top: 600px;}
+#cukurrambut {top: 500px;}
+#cewek {top: 600px;}
+
+.hud{
+  width:90vw;
+  max-width:1000px;
+  display:flex;
+  gap:14px;
+  align-items:center;
+  justify-content:flex-start;
+}
+
+.hud-item{background:var(--panel);padding:8px 12px;border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+
+/* bar darah */
+.bar-box{width:140px;height:14px;background:#ddd;border-radius:8px;overflow:hidden}
+.bar-isi{height:100%;background:linear-gradient(90deg,#ff5f6d,#ffc371);width:100%}
+
+/* viewport permainan (kamera) */
+#container {
+  width: 700vw;
+  max-width: 900px;
+  height: var(--game-h);
+  border: 3px solid #000000;
+  border-radius: 12px;
+  background: linear-gradient(#136e15, #2eea6a);
+  overflow: hidden;
+}
+
+/* game area atau canvas */
+#gamearea {
+  position: relative;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3000px;
+  transition: transform 0.12s linear;
+  filter: brightness();
+}
+
+#jalan {
+  position: absolute;
+  bottom: -700px;
+  left: 400px;
+  width: 180px;
+  height: 1600px;
+  background: linear-gradient(#6b4b2a,#4a3d2d);
+  box-shadow: inset 0 6px 0 rgba(255,255,255,0.04);
+}
+
+/* entitas */
+.entitas img{max-width:100%;max-height:100%;display:block}
+#player img{pointer-events:none}
+
+#home, #damkar, #gym, #pabrik, #tokomobil, #cukurrambut{
+  position: absolute;
+  left: 300px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ #pakaian, #kantorpolisi, #rumahmakan, #rumahsakit, #sekolah, #cewek {
+  position: absolute;
+  left: 600px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#homeDua{
+  position: absolute;
+  left: 300px;
+  width: 80px;
+  height: 80px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+#mobil{
+  position: absolute;
+  left: 400px;
+  width: 80px;
+  height: 80px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 90;
+}
+
+#npcmobil{
+  position: absolute;
+  top: auto;
+  left: 500px;
+  width: 80px;
+  height: 80px;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  z-index: 90;
+}
+
+#orang1 {left: 350px; top: 100px;}
+#orang2 {left: 550px; top: 100px;}
+#orang3 {left: 350px; top: 50px;}
+#orang4 {left: 550px; top: 50px;}
+
+#orang1, #orang2, #orang3, #orang4{
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 90;
+}
+
+#player{
+  position: relative;
+  left: 400px;
+  width: 100px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.5);
+}
+
+#headP {
+  position: relative;
+  top: -17;
+  left: 18;
+}
+#downP {
+  position: relative;
+  top: 21;
+  left: -21;
+}
+
+#messege {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 160px;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 16px;
+  display: none;
+  white-space: nowrap;
+  z-index: 50;
+}
+
+#darahbox {
+  width: 200px;
+  height: 25px;
+  background: grey;
+  margin-bottom: 10px;
+}
+
+#darahisi {
+  width: 100%;
+  height: 100%;
+  background: red;
+}
+
+#uangtext {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.control {
+  display: flex;
+  gap: 180px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 95vw;
+  max-width: 1000px;
+  padding: 8px 0 20px 0;
+}
+
+.control button {
+  width: 25px;
+  height: 25px;
+  border-radius: 10px;
+  border: none;
+  background: #0077ff;
+  color: white;
+  font-size: 18px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.18);
+}
+
+.control button:active { transform: scale(0.95); }
+
+/* mobile friendly */
+@media (max-width: 600px) {
+  #player, #home, #damkar, #gym, #pabrik, #pakaian, #kantorpolisi, #rumahmakan, #rumahsakit, #sekolah {
+    width: 64px;
+    height: 64px;
+  }
+  .message { font-size: 14px; bottom: 140px; }
+}
+
+.popup-root{  
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-root.show{visibility:visible;opacity:1}
+.popup-card{background:white;border-radius:12px;padding:18px;width:90%;max-width:420px;position:relative;box-shadow:0 20px 40px rgba(0,0,0,0.2)}
+
+.popup-close{
+  position:absolute;
+  right:10px;top:10px;background:red;
+  border:none;font-size:18px
+}
+.popup-body{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.popup-body img{width:64px;height:64px;border:2px solid #ddd;border-radius:8px;cursor:pointer}
+
+.pohon {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -10;
+}

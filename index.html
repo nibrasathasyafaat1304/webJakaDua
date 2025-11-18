@@ -1,0 +1,222 @@
+<html>
+    <head>
+        <title> game sederhana yang kedua </title>
+        <link rel="stylesheet" href="style.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+    </head>
+
+    <body>
+
+        <!-- tampilan HUD -->
+        <header class="hud">
+            <div class="hud-item">
+            <label>Darah</label>
+            <div class="bar-box" id="darahbox"><div class="bar-isi" id="darahisi"></div></div></div>
+            <div class="hud-item">Uang: <strong id="jumlahUang">100</strong></div>
+            <div class="hud-item">IQ: <strong id="jumlahIq">10</strong></div>
+            <div class="hud-item">Otot: <strong id="jumlahOtot">10</strong></div>
+            <div class="hud-item">Waktu <strong id="jam">--</strong>:<strong id="menit">--</strong></div>
+            <div class="hud-item">daya-tarik:<strong id="dayatarik">--</strong><blockquote id="statu"></blockquote>
+        </header>
+
+        <!-- tampilan layar -->
+        <main id="container">
+            <div id="gamearea">
+
+                <div class="entitas npc" id="npcmobil" data-role="npc"><img src="aset/mobil.png" height="30" width="35"><div id="npcmobilbox" height="30" width="35"></div></div>
+                <div class="entitas milik player" id="mobil" data-role="car"><img src="aset/mobil.png" height="30" width="35"></div>
+
+                <div id="jalan"></div>
+
+                <div id="messege" role="status"></div>
+
+                <!-- player -->
+                <div id="player" class="entitas pemain" data-role="player" tabindex="0">
+                    <div id="headP"> <img src="aset/rambutdef.png" height="20" width="20"> </div>
+                    <div id="bodyP"> <img src="aset/bajudef.png" height="20" width="20"> </div>
+                    <div id="downP"> <img src="aset/celanadef.png" height="20" width="20"> </div>
+                    <div id="playerbox" height="30" width="30"></div>   
+                </div>
+
+                <div id="cewek"><img src="aset/orang1.png" height="25" width="25"> </div>
+                <div id="orang1"><img src="aset/orang2.png" height="25" width="25"> </div>
+                <div id="orang2"><img src="aset/orang3.png" height="25" width="25"> </div>
+                <div id="orang3"><img src="aset/orang1.png" height="25" width="25"> </div>
+                <div id="orang4"><img src="aset/orang2.png" height="25" width="25"> </div>
+
+                <!-- bangunan -->
+                <div class="entitas bangunan" id="homeDua" data-type="bangunanRumahKu2"><img src="aset/rumah.png" height="60" width="60"></div>
+                <div class="entitas bangunan" id="home" data-type="bangunanRumahKu"><img src="aset/rumah.png" height="60" width="60"></div>
+                <div class="entitas bangunan" id="damkar" data-type="bangunanDamkar"><img src="aset/damkar.png" height="60" width="60"></div>
+                <div class="entitas bangunan" id="gym" data-type="bangunanGym"><img src="aset/gym.png" height="60" width="60"></div>
+                <div class="entitas bangunan" id="pabrik" data-type="bangunanpabrik"><img src="aset/pbrk.png" height="60" width="60"></div>
+                <div class="entitas bangunan" id="pakaian" data-type="toko-pakaian"><img src="aset/pkn.png" height="60" width="60"></div>
+                <div class="entitas bangunan" id="kantorpolisi" data-type="kantor-polisi"><img src="aset/polisi.png" height="60" width="60"></div>
+                <div class="entitas bangunan" id="rumahmakan" data-type="rumah-makan"><img src="aset/rmkn.png" height="60" width="60"></div>
+                <div class="entitas bangunan" id="rumahsakit" data-type="rumah-sakit"><img src="aset/rs.png" height="60" width="60"></div>
+                <div class="entitas bangunan" id="sekolah" data-type="gedung-sekolah"><img src="aset/skh.png" height="60" width="60"></div>
+                <div class="entitas bangunan" id="tokomobil" data-type="diler-mobil"><img src="aset/tokomobil.png" height="60" width="60"></div>
+                <div class="entitas bangunan" id="cukurrambut" data-type="tempat-cukur"><img src="aset/cukurrambut.png" height="60" width="60"></div>
+
+                <!-- pohon -->
+                <div class="pohon 1" style="left: 250px;" ><img src="aset/pohon.png" height="60" width="60"></div>
+                <div class="pohon 2" style="left: 250px;top: 100px;"><img src="aset/pohon.png" height="60" width="60"></div>
+                <div class="pohon 3" style="left: 100px;top: 250px;"><img src="aset/pohon.png" height="60" width="60"></div>
+                <div class="pohon 4" style="left: 140px;top: 50px;"><img src="aset/pohon.png" height="60" width="60"></div>
+                <div class="pohon 5" style="left: 50px;top: -150px;"><img src="aset/pohon.png" height="60" width="60"></div>
+                <div class="pohon 6" style="left: 150px;top: -310px;"><img src="aset/pohon.png" height="60" width="60"></div>
+                <div class="pohon 7" style="left: 110px;top: -530px;"><img src="aset/pohon.png" height="60" width="60"></div>
+                <div class="pohon 8" style="left: 130px;top: -400px;"><img src="aset/pohon.png" height="60" width="60"></div>
+                <div class="pohon 1c" style="left: 750px;top: -500px;"><img src="aset/pohon.png" height="60" width="60"></div>
+                <div class="pohon 2c" style="left: 850px;top: -650px;"><img src="aset/pohon.png" height="60" width="60"></div>
+                <div class="pohon 3c" style="left: 650px;top: -720px;"><img src="aset/pohon.png" height="60" width="60"></div>
+                <div class="pohon 4c" style="left: 669px;top: -950px;"><img src="aset/pohon.png" height="60" width="60"></div>
+                <div class="pohon 5c" style="left: 625px;top: -980px;"><img src="aset/pohon.png" height="60" width="60"></div>
+                <div class="pohon 6c" style="left: 800px;top: -840px;"><img src="aset/pohon.png" height="60" width="60"></div>
+                <div class="pohon 7c" style="left: 650px;top: -890px;"><img src="aset/pohon.png" height="60" width="60"></div>
+                <div class="pohon 8c" style="left: 780px;top: -900px;"><img src="aset/pohon.png" height="60" width="60"></div>
+
+            </div>
+        </main>
+
+        <!-- controller -->
+        <nav class="control">
+            <button id="atas"><img src="aset/atas.jpg" height="200" width="200"></button>
+            <button id ="bawah"><img src="aset/bawah.jpg" height="200" width="200"></button>
+            <button id="kanan"><img src="aset/kanan.jpg" height="200" width="200"></button>
+            <button id="kiri"><img src="aset/kiri.jpg" height="200" width="200"></button>
+            <button id="A"><img src="aset/a.jpg" height="200" width="200"></button>
+        </nav>
+
+        <!-- label <! pop up -->
+
+        <!-- tokopakaian -->
+
+        <div class="popup-root" id="toko" style="display: none;">
+            <div class="popup-card">
+                <h3>Beli Pakaian</h3>
+                <p> harga baju = 50</p>
+                    <div class="popup-body" class="bajuList">
+                    <img src="aset/baju1.png" class="baju" data-id="baju1">
+                    <img src="aset/baju2.png" class="baju" data-id="baju2">
+                    <img src="aset/baju3.png" class="baju" data-id="baju3">
+                    <img src="aset/celana1.png" class="baju" data-id="celana1">
+                    <img src="aset/celana2.png" class="baju" data-id="celana2">
+                    <img src="aset/celana3.png" class="baju" data-id="celana3">
+                    </div>
+                <button class="popup-close" id="tutupPakaian">Tutup</button>
+            </div>
+        </div>
+
+        <!-- rumah -->
+
+         <div class="popup-root" id="lemari" style="display: none;">
+            <div class="popup-card">
+                <h3>Lemari Pakaianku</h3>
+                    <div class="popup-body" class="bajukuList">
+                    <img src="aset/baju1.png" class="bajuku" data-id="baju1">
+                    <img src="aset/baju2.png" class="bajuku" data-id="baju2">
+                    <img src="aset/baju3.png" class="bajuku" data-id="baju3">
+                    <img src="aset/celana1.png" class="bajuku" data-id="celana1">
+                    <img src="aset/celana2.png" class="bajuku" data-id="celana2">
+                    <img src="aset/celana3.png" class="bajuku" data-id="celana3">
+                    </div>
+                <button class="popup-close" id="tutupPakaiandua">Tutup</button>
+            </div>
+         </div>
+
+        <!-- rumahDua -->
+
+         <div class="popup-root" id="rumah" style="display: none;">
+            <div class="popup-card">
+                <h3>ruangan</h3>
+                    <div class="popup-body" class="kamarlist">
+                    <label class="kamar" data-id="tidur" style="border: 3px solid #000000;"> kamar tidur </label><br>
+                    <label class="kamar" data-id="ganti" style="border: 3px solid #000000;"> kamar ganti </label>
+                    </div>
+                <button class="popup-close" id="tutuprumah">Tutup</button>
+            </div>
+         </div>
+
+     <!-- rumahmakan -->
+
+         <div class="popup-root" id="rumahmakanpop" style="display: none;">
+            <div class="popup-card">
+                <h3>menu makanan</h3>
+                <p> pilih id 1 maka harga = 5; darah bertambah 5; <br>
+                    pilih id 2 maka harga = 10; darah bertambah 10;</p>
+                    <div class="popup-body" class="makanan">
+                    <img src="aset/plussatu.jpg" class="makan" data-id="mkn1">
+                    <img src="aset/plusdua.jpg" class="makan" data-id="mkn2">
+                    </div>
+                <button class="popup-close" id="tutuprmkn">Tutup</button>
+            </div>
+         </div>
+
+     <!-- gym -->
+
+         <div class="popup-root" id="gympop" style="display: none;">
+            <div class="popup-card" class="popupgym">
+                <h3>alat olahraga</h3>
+                <p>pilih id 1 maka harga = 25; darah berkurang = 5; otot bertambah = 5; <br>
+                   pilih id 2 maka harga = 50; darah berkurang = 10; otot bertambah = 10;</p>
+                    <div class="popup-body" class="fitness">
+                    <img src="aset/plussatu.jpg" class="olahraga" data-id="olah1">
+                    <img src="aset/plusdua.jpg" class="olahraga" data-id="olah2">
+                    </div>
+                <button class="popup-close" id="tutupgym">Tutup</button>
+            </div>
+         </div>
+
+     <!-- sekolah -->
+
+         <div class="popup-root" id="sekolahpop" style="display: none;">
+            <div class="popup-card" class="popupskh">
+                <h3>paket sekolah</h3>
+                <p> pilih id 1 maka harga = 50; iq bertambah = 5; darah berkurang = 10; <br>
+                    pilih id 2 maka harga = 100; iq bertambah = 10; darah berkurang = 10;</p>
+                    <div class="popup-body" class="pilihanskh">
+                    <img src="aset/plussatu.jpg" class="kelas" data-id="kelas1">
+                    <img src="aset/plusdua.jpg" class="kelas" data-id="kelas2">
+                    </div>
+                <button class="popup-close" id="tutupkelas">Tutup</button>
+            </div>
+         </div>
+
+     <!-- cukurrambut -->
+
+         <div class="popup-root" id="cukurrambutpop" style="display: none;">
+            <div class="popup-card" class="popupckr">
+                <h3>gaya rambut</h3>
+                <p> harga = 75;</p>
+                    <div class="popup-body" class="pilihanckr">
+                    <img src="aset/rambut1.png" class="rambut" data-id="rambut1">
+                    <img src="aset/rambut2.png" class="rambut" data-id="rambut2">
+                    <img src="aset/rambut3.png" class="rambut" data-id="rambut3">
+                    </div>
+                <button class="popup-close" id="tutupckr">Tutup</button>
+            </div>
+         </div>
+
+    <!-- toko mobil -->
+
+         <div class="popup-root" id="dilerpop" style="display: none;">
+            <div class="popup-card" class="popupdiler">
+                <h3>mobil dan bangunan</h3>
+                <p> harga = 250; </p>
+                    <div class="popup-body" class="pilihanmobil">
+                    <img src="aset/mobil.png" class="belimobil" data-id="belimobil1">
+                    <img src="aset/rumah.png" class="belimobil" data-id="belimobil">
+                    </div>
+                <button class="popup-close" id="tutupdiler">Tutup</button>
+            </div>
+         </div>
+
+<!-- pop up !> tutup -->
+
+    <script src="script.js"></script>
+
+    </body>
+
+</html>
